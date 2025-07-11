@@ -1,0 +1,25 @@
+/**
+* UserInput: This program demonstrates basic input
+* in console applications with the Scanner class
+*
+* @author fhb
+* @version 1.0
+* @since 31 Oct 2018
+*/
+import java.util.Scanner; // The Scanner class must be use to get user input
+public class UserInput {
+public static void main(String[] args) {
+Scanner userInput = new Scanner(System.in); // Setting a Scanner object to
+get the user input.
+String name; // Save the user input in the String variable 'name'
+System.out.println();
+System.out.print("Enter a your Name: "); // Tell the user to enter a name
+name = userInput.next(); // Get the name from the command line and save it
+on the variable 'name'
+System.out.print("The name you entered was: " + name); // Print the content
+of the variable 'name'
+System.out.println();
+System.out.println();
+userInput.close(); // Close the user input
+}//End of method main()
+}//End of class UserInput

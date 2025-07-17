@@ -74,7 +74,7 @@ public class LinearEquationSolverWithTwoSamples {  // Begin class definition
      * reports that there is no solution.
      *
      * @author Young Min Kim
-     * @version 1.0
+     * @version 1.6
      * @param void
      * @return void
      * @since 17 July 2025
@@ -118,7 +118,7 @@ public class LinearEquationSolverWithTwoSamples {  // Begin class definition
             double y = (a * f - e * c) / (a * d - b * c);
 
             // Display the solution formatted: X with 3 decimals, Y with 4 decimals
-            System.out.printf("\nThe solution for this 2 x 2 linear equation is:\n");
+            System.out.print("\nThe solution for this system or equations is:\n");
             System.out.printf("X = %.3f\n", x);  // 3 decimals for X
             System.out.printf("Y = %.4f\n", y);  // 4 decimals for Y
         }
@@ -128,9 +128,9 @@ public class LinearEquationSolverWithTwoSamples {  // Begin class definition
 }
 
 /*
-Sample Output 1 (Solvable system):
+Output for "The solution for this system or equations is:"
 
-2 x 2 linear equation solver:
+System of equation solver:
 
 ax + by = e
 cx + dy = f
@@ -140,3 +140,27 @@ Enter the value for b: 50.2
 Enter the value for c: 2.1
 Enter the value for d: 3.55
 Enter the value for e: 44.5
+Enter the value for f: 5.9
+
+The solution for this 2 x 2 linear equation is:
+X = 1.481
+Y = 0.7862
+
+------------------------------------------------------------
+
+Output for "The equation has no solution."
+
+2 x 2 linear equation solver:
+
+ax + by = e
+cx + dy = f
+
+Enter the value for a: 2
+Enter the value for b: 4
+Enter the value for c: 1
+Enter the value for d: 2
+Enter the value for e: 6
+Enter the value for f: 3
+
+The equation has no solution.
+*/

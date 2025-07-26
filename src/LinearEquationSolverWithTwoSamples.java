@@ -1,12 +1,13 @@
 /**
  * LinearEquationSolverWithTwoSamples.java
  */
-// This program solves a system of 2x2 linear equations using Cramer's rule
-// without mentioning or storing the denominator explicitly.
+// This program solves a system of 2x2 linear equations using Cramer's rule.
+// It prompts the user for coefficients and constants, calculates the solution, and displays the result.
 
 /**
- * Program Description:
- * This program solves a system of 2x2 linear equations of the form:
+ * Program Description: This program solves a system of 2x2 linear equations of the form
+ *
+ * Formulas:
  * ax + by = e
  * cx + dy = f
  *
@@ -18,20 +19,20 @@
  *
  * Test Data and Examples:
  *
- * Example 1: Solvable system
+ * Example 1: "The solution for this system or equations is:":
  * Given the equations:
  * 3.4x + 50.2y = 44.5
  * 2.1x + 3.55y = 5.9
  *
  * Calculation Steps:
- * (3.4 * 3.55) - (50.2 * 2.1) = 12.07 - 105.42 = -93.35
+ * (3.4 * 3.55) - (50.2 * 2.1) = 12.07-105.42 = -93.35
  *
- * x = (44.5 * 3.55 - 50.2 * 5.9) / -93.35
- * x = (157.975 - 295.18) / -93.35
+ * x = (44.5 * 3.55-50.2 * 5.9) / -93.35
+ * x = (157.975-295.18) / -93.35
  * x = -137.205 / -93.35 = 1.4810
  *
- * y = (3.4 * 5.9 - 44.5 * 2.1) / -93.35
- * y = (20.06 - 93.45) / -93.35
+ * y = (3.4 * 5.9-44.5 * 2.1) / -93.35
+ * y = (20.06-93.45) / -93.35
  * y = -73.39 / -93.35 = 0.7862
  *
  * Output:
@@ -40,13 +41,13 @@
  *
  * -----------------------------------------------------------
  *
- * Example 2: System with no solution (parallel lines)
+ * Example 2: “The equation has no solution.”
  * Given the equations:
  * 2x + 4y = 6
  * 1x + 2y = 3
  *
  * Calculation:
- * (2 * 2) - (4 * 1) = 4 - 4 = 0
+ * (2 * 2) - (4 * 1) = 4-4 = 0
  *
  * Since the result is 0, the system has no solution.
  *
@@ -54,7 +55,7 @@
  * The equation has no solution.
  *
  * @author Young Min Kim
- * @version 1.6
+ * @version 1.0
  * @since 17 July 2025
  */
 
@@ -74,16 +75,16 @@ public class LinearEquationSolverWithTwoSamples {  // Begin class definition
      * reports that there is no solution.
      *
      * @author Young Min Kim
-     * @version 1.6
+     * @version 1.0
      * @param void
      * @return void
      * @since 17 July 2025
      */
     public static void solveEquation() {
-        Scanner scanner = new Scanner(System.in);  // Create scanner object
+        Scanner scanner = new Scanner(System.in);  // Create a scanner object
 
         // Display program instructions
-        System.out.println("2 x 2 linear equation solver:\n");
+        System.out.println("System of equation solver:\n");
         System.out.println("ax + by = e");
         System.out.println("cx + dy = f\n");
 
@@ -128,7 +129,7 @@ public class LinearEquationSolverWithTwoSamples {  // Begin class definition
 }
 
 /*
-Output for "The solution for this system or equations is:"
+Sample Output 1 (Solvable system):
 
 System of equation solver:
 
@@ -142,15 +143,15 @@ Enter the value for d: 3.55
 Enter the value for e: 44.5
 Enter the value for f: 5.9
 
-The solution for this 2 x 2 linear equation is:
+The solution for this system or equations is:
 X = 1.481
 Y = 0.7862
 
 ------------------------------------------------------------
 
-Output for "The equation has no solution."
+Sample Output 2 (No solution):
 
-2 x 2 linear equation solver:
+System of equation solver:
 
 ax + by = e
 cx + dy = f

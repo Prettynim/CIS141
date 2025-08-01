@@ -22,7 +22,7 @@
  * <End Output>
  *
  * @author Young Min Kim
- * @version 1.5
+ * @version 1.0
  * @since 1 Aug 2025
  */
 

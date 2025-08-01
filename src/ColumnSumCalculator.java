@@ -22,125 +22,125 @@
  * <End Output>
  *
  * @author Young Min Kim
- * @version 1.4
+ * @version 1.5
  * @since 1 Aug 2025
  */
 
-import java.util.Scanner;
+import java.util.Scanner; // Import Scanner for user input
 
 public class ColumnSumCalculator {
 
-    // Constant for table column width
-    public static final int COLUMN_WIDTH = 6;
+    public static final int COLUMN_FORMATTING_WIDTH = 6; // Constant for column formatting width
 
     /**
-     * main: This is the entry point of the program. It handles user input for
-     * the matrix dimensions and values, then displays the formatted matrix
-     * and the sum of each column.
+     * main: This is the entry point of the program.
+     * It handles user input and prints the matrix and column sums.
      *
      * @author Young Min Kim
-     * @version 1.4
-     * @param args String[] - command-line arguments
+     * @version 1.0
+     * @param void
      * @return void
      * @since 1 Aug 2025
      */
     public static void main(String[] args) {
-        Scanner userInputScanner = new Scanner(System.in);
+        Scanner userInputScanner = new Scanner(System.in); // Scanner to read user input
 
-        int[] matrixDimensions = readMatrixDimensions(userInputScanner);
-        double[][] inputMatrix = readMatrixValues(userInputScanner, matrixDimensions[0], matrixDimensions[1]);
+        int[] matrixSizeArray = getMatrixSizeFromUser(userInputScanner); // Get dimensions
+
+        double[][] matrixData = getMatrixDataFromUser(
+                userInputScanner,
+                matrixSizeArray[0],
+                matrixSizeArray[1]
+        );
 
         System.out.println("\nOUTPUT:");
         System.out.println("The sums of each of the columns are:\n");
 
-        displayFormattedMatrix(inputMatrix);
-        calculateAndDisplayColumnSums(inputMatrix);
+        printMatrix(matrixData); // Display matrix
+        sumOfColumns(matrixData); // Display sum of columns
 
-        userInputScanner.close();
-    } // End of method main
+        userInputScanner.close(); // Close scanner
+    }
 
     /**
-     * readMatrixDimensions: Prompts the user to enter number of rows and columns
-     * and stores them in an array.
+     * getMatrixSizeFromUser: Prompts user to input number of rows and columns.
      *
      * @author Young Min Kim
      * @version 1.0
-     * @param inputScanner Scanner - a Scanner object to read user input
-     * @return int[] - an array containing the number of rows and columns
+     * @param inputScanner Scanner
+     * @return int[]
      * @since 1 Aug 2025
      */
-    public static int[] readMatrixDimensions(Scanner inputScanner) {
-        System.out.println("INPUT:");
+    public static int[] getMatrixSizeFromUser(Scanner inputScanner) {
         System.out.print("Enter the number of rows and columns of the array: ");
         int numberOfRows = inputScanner.nextInt();
         int numberOfColumns = inputScanner.nextInt();
         return new int[] { numberOfRows, numberOfColumns };
-    } // End of method readMatrixDimensions
+    }
 
     /**
-     * readMatrixValues: Reads the matrix values row by row from user input.
+     * getMatrixDataFromUser: Prompts user to enter matrix values.
      *
      * @author Young Min Kim
      * @version 1.0
-     * @param inputScanner Scanner - Scanner object for user input
-     * @param numberOfRows int - number of rows in the matrix
-     * @param numberOfColumns int - number of columns in the matrix
-     * @return double[][] - the filled matrix
+     * @param inputScanner Scanner
+     * @param numberOfRows int
+     * @param numberOfColumns int
+     * @return double[][]
      * @since 1 Aug 2025
      */
-    public static double[][] readMatrixValues(Scanner inputScanner, int numberOfRows, int numberOfColumns) {
-        double[][] userMatrix = new double[numberOfRows][numberOfColumns];
+    public static double[][] getMatrixDataFromUser(Scanner inputScanner, int numberOfRows, int numberOfColumns) {
+        double[][] inputMatrix = new double[numberOfRows][numberOfColumns];
         System.out.println("\nEnter the array:");
-        for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
-            for (int columnIndex = 0; columnIndex < numberOfColumns; columnIndex++) {
-                userMatrix[rowIndex][columnIndex] = inputScanner.nextDouble();
+        for (int row = 0; row < numberOfRows; row++) {
+            for (int column = 0; column < numberOfColumns; column++) {
+                inputMatrix[row][column] = inputScanner.nextDouble();
             }
         }
-        return userMatrix;
-    } // End of method readMatrixValues
+        return inputMatrix;
+    }
 
     /**
-     * displayFormattedMatrix: Prints the 2D matrix in table format with aligned columns.
+     * printMatrix: Displays the matrix in a formatted structure.
      *
      * @author Young Min Kim
      * @version 1.0
-     * @param matrix double[][] - the 2D array to be printed
+     * @param matrix double[][]
      * @return void
      * @since 1 Aug 2025
      */
-    public static void displayFormattedMatrix(double[][] matrix) {
-        for (double[] row : matrix) {
+    public static void printMatrix(double[][] matrix) {
+        for (double[] rowArray : matrix) {
             System.out.print("      | ");
-            for (double value : row) {
-                System.out.printf("%" + COLUMN_WIDTH + ".1f | ", value);
+            for (double value : rowArray) {
+                System.out.printf("%" + COLUMN_FORMATTING_WIDTH + ".1f | ", value);
             }
             System.out.println();
         }
-    } // End of method displayFormattedMatrix
+    }
 
     /**
-     * calculateAndDisplayColumnSums: Calculates the sum of each column and prints them
-     * aligned with the matrix rows in a formatted table.
+     * sumOfColumns: Calculates and prints the sum of each column.
      *
      * @author Young Min Kim
      * @version 1.0
-     * @param columnMatrix double[][] - the matrix whose column sums are to be calculated
+     * @param matrix double[][]
      * @return void
      * @since 1 Aug 2025
      */
-    public static void calculateAndDisplayColumnSums(double[][] columnMatrix) {
-        final int numberOfRows = columnMatrix.length;
-        final int numberOfColumns = columnMatrix[0].length;
+    public static void sumOfColumns(double[][] matrix) {
+        final int totalRows = matrix.length;
+        final int totalColumns = matrix[0].length;
 
         System.out.print("Sum   | ");
-        for (int columnIndex = 0; columnIndex < numberOfColumns; columnIndex++) {
-            double columnSum = 0;
-            for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
-                columnSum += columnMatrix[rowIndex][columnIndex];
+        for (int columnIndex = 0; columnIndex < totalColumns; columnIndex++) {
+            double sumForColumn = 0.0;
+            for (int rowIndex = 0; rowIndex < totalRows; rowIndex++) {
+                sumForColumn += matrix[rowIndex][columnIndex];
             }
-            System.out.printf("%" + COLUMN_WIDTH + ".1f | ", columnSum);
+            System.out.printf("%" + COLUMN_FORMATTING_WIDTH + ".1f | ", sumForColumn);
         }
         System.out.println("\n\n<End Output>");
-    } // End of method calculateAndDisplayColumnSums
+    }
 
-} // End of class ColumnSumCalculator
+}

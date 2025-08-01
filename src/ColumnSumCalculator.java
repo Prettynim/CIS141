@@ -14,15 +14,15 @@
  *
  * OUTPUT:
  * The sums of each of the columns are:
- *       |   1.0 |   2.0 |   3.0 |   5.0 |
- *       |   6.0 |   7.0 |   8.0 |   3.0 |
- *       |   9.0 |   5.0 |   6.0 |   2.0 |
- * Sum   |  16.0 |  14.0 |  17.0 |  10.0 |
+ *        1.0    2.0    3.0    5.0
+ *        6.0    7.0    8.0    3.0
+ *        9.0    5.0    6.0    2.0
+ * Sum   16.0   14.0   17.0   10.0
  *
  * <End Output>
  *
  * @author Young Min Kim
- * @version 1.0
+ * @version 1.5
  * @since 1 Aug 2025
  */
 
@@ -72,6 +72,7 @@ public class ColumnSumCalculator {
      * @since 1 Aug 2025
      */
     public static int[] getMatrixSizeFromUser(Scanner inputScanner) {
+        System.out.println("INPUT:");
         System.out.print("Enter the number of rows and columns of the array: ");
         int numberOfRows = inputScanner.nextInt();
         int numberOfColumns = inputScanner.nextInt();
@@ -111,9 +112,9 @@ public class ColumnSumCalculator {
      */
     public static void printMatrix(double[][] matrix) {
         for (double[] rowArray : matrix) {
-            System.out.print("      | ");
+            System.out.print("      ");
             for (double value : rowArray) {
-                System.out.printf("%" + COLUMN_FORMATTING_WIDTH + ".1f | ", value);
+                System.out.printf("%" + COLUMN_FORMATTING_WIDTH + ".1f ", value);
             }
             System.out.println();
         }
@@ -132,13 +133,13 @@ public class ColumnSumCalculator {
         final int totalRows = matrix.length;
         final int totalColumns = matrix[0].length;
 
-        System.out.print("Sum   | ");
+        System.out.print("Sum   ");
         for (int columnIndex = 0; columnIndex < totalColumns; columnIndex++) {
             double sumForColumn = 0.0;
             for (int rowIndex = 0; rowIndex < totalRows; rowIndex++) {
                 sumForColumn += matrix[rowIndex][columnIndex];
             }
-            System.out.printf("%" + COLUMN_FORMATTING_WIDTH + ".1f | ", sumForColumn);
+            System.out.printf("%" + COLUMN_FORMATTING_WIDTH + ".1f ", sumForColumn);
         }
         System.out.println("\n\n<End Output>");
     }

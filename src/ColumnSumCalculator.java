@@ -40,7 +40,7 @@ public class ColumnSumCalculator {
      *
      * @author Young Min Kim
      * @version 1.4
-     * @param args String[] - command-line arguments (not used)
+     * @param args String[] - command-line arguments
      * @return void
      * @since 1 Aug 2025
      */

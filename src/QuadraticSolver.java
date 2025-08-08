@@ -22,8 +22,7 @@
  * <End Output>
  */
 
-// Import necessary classes for user input and input mismatch exceptions.
-import java.util.InputMismatchException;
+// Import necessary classes for user input.
 import java.util.Scanner;
 
 // Main class to run the program.
@@ -187,7 +186,7 @@ public class QuadraticSolver {
                 b = input.nextDouble();
                 c = input.nextDouble();
                 break; // Exit the loop if input is valid.
-            } catch (InputMismatchException e) {
+            } catch (Exception e) {
                 // Catch the exception if the input is not a double.
                 System.out.println("Invalid input. Please enter three numbers separated by spaces.");
                 input.nextLine(); // Clear the invalid input from the buffer.

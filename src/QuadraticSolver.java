@@ -157,7 +157,6 @@ public class QuadraticSolver {
 
     /**
      * Clears the console screen using ANSI escape codes.
-     * NOTE: This may not work on all terminals.
      */
     public static void clearConsole() {
         System.out.print("\033[H\033[2J");
